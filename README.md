@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # cs403_16-2_F-proj
 Project work for F hr in Term 16-2, CS403 
 
@@ -50,3 +51,6 @@ through 10 are represented by their respective digits.
  on top of any card regardless of the suit. The player who played
  the 8 then chooses the suit that the next player must match 
  regardless of what the suit that the 8 card has.   
+=======
+# crazy8game
+>>>>>>> 72ec523449c0ac4bbe8f58bf4af85869758461e8

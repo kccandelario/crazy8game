@@ -1,30 +1,11 @@
-package tdd_intro
-
+package package menu_commands
 import org.scalatest.FunSpec
 import org.scalatest.Matchers
-
-class Password_Test extends FunSpec with Matchers {
-  
-   describe("A password checker") {
-    describe("determines proper length") {
-      it("rejects passwords that are less than 6 characters") {
-
-        val tooShort = "abcde"
-        val longEnough = "abcdef"        
-        val evenLonger = "abcdefghi"        
-
-        Password.isValid(tooShort) shouldBe false
-        Password.isValid(longEnough) shouldBe true
-        Password.isValid(evenLonger) shouldBe true
-      }   
-    }
-  }
-}
 
 class Show_Game_Area extends FunSpec with Matchers {
   
    describe("Sets Game Board") {
-    describe("Gives each plaer 7 cards, places on card in the discard pile and the rest in the draw pile") {
+    describe("Gives each player 7 cards, places on card in the discard pile and the rest in the draw pile") {
       it("deals out the cards") {
 
         val p1cards = 7

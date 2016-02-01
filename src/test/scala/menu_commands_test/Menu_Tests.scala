@@ -1,6 +1,6 @@
-package package menu_commands
 import org.scalatest.FunSpec
 import org.scalatest.Matchers
+
 
 class Show_Game_Area extends FunSpec with Matchers {
   
@@ -9,16 +9,23 @@ class Show_Game_Area extends FunSpec with Matchers {
       it("deals out the cards") {
 
         val p1cards = 7
-				val p2cards = 7
-				val p3cards = 7
-				val p4cards = 7
+		val p2cards = 7
+		val p3cards = 7
+		val p4cards = 7
         val discard = 1        
         val draw = 23        
 
-        Show_Game_Area.isValid(p1cards) shouldBe true
-        Show_Game_Area.isValid(p2cards) shouldBe true
-        Show_Game_Area.isValid(p3cards) shouldBe true
-				Show_Game_Area.isValid(p4cards) shouldBe true
+        Menu.showP1HandSize shouldBe (p1cards)
+        Menu.showP2HandSize shouldBe (p2cards)
+        Menu.showP3HandSize shouldBe (p3cards)
+		Menu.showP4Handsize shouldBe (p4cards)
+		Menu.showDiscardSize shouldbe (discard)
+		Menu.showDrawSize shouldbe (draw)
+		hands.p1.hand!=hands.p2.hand shouldbe true
+		hands.p2.hand!=hands.p3.hand shouldbe true
+		hands.p3.hand!=hands.p4.hand shouldbe true
+		hands.p4.hand!=hands.p1.hand shouldbe true
+		Menu.showAllHands
       }   
     }
   }
@@ -32,7 +39,7 @@ class Show_Player_Order extends FunSpec with Matchers {
 
         val expectedResult = "p1, p2, p3, p4"
 
-        Show_Player_Order.isValid(expectedResult) shouldBe true
+        Menu.showPlayerOrder shouldBe(expectedResult)
       }   
     }
   }
@@ -44,9 +51,14 @@ class Show_Player_Order extends FunSpec with Matchers {
     describe("move whoever was first to fourth, second to first, third to second, and fourth to third etc.") {
       it("dequeues the first player then enqueue that same player") {
 
-        val expectedResult = "p2, p3, p4, p1"
-
-        Show_Player_Order.isValid(expectedResult) shouldBe true
+        val expectedResult1 = "p2, p3, p4, p1"
+		val expectedResult2 = "p3, p4, p1, p2"
+		val expectedResult3 = "p4, p1, p2, p3"
+		val expectedResult4 = "p1, p2, p3, p4"
+        Menu.advancePlayerOrder shouldBe(expectedResult1)
+		Menu.advancePlayerOrder shouldBe(expectedResult2)
+		Menu.advancePlayerOrder shouldBe(expectedResult3)
+		Menu.advancePlayerOrder shouldBe(expectedResult4)
       }   
     }
   }

@@ -1,11 +1,28 @@
-package menu_commands
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
 
 object Menu{
-	def showGameArea: Int = { //Just shows the number of cards in each player's hand
+	def showHandSize: Int = { //Just shows the number of cards in each player's hand
 		hands.show
+	}
+	def showP1HandSize: Int ={
+		hands.showP1
+	}
+	def showP2HandSize: Int ={
+		hands.showP2
+	}
+	def showP3HandSize: Int ={
+		hands.showP3
+	}
+	def showP4HandSize: Int ={
+		hands.showP4
+	}
+	def showDiscardSize: Int ={
+		hands.showDiscard
+	}
+	def showDrawSize: Int = {
+		hands.showDraw
 	}
 	def showAllHands: String = { //Shows the number of cards in each player's hand, the type of cards,
 		hands.showFullHand // the number of cards in the discard pile, and draw pile. 
@@ -99,6 +116,24 @@ object hands{
 		p3.hand.length
 		p4.hand.length
 		}
+	def showP1 = {
+		p1.hand.length
+		}
+	def showP2 = {
+		p2.hand.length
+		}
+	def showP3 = {
+		p3.hand.length
+		}
+	def showP4 = {
+		p4.hand.length
+		}
+	def showDiscard = {
+		discard.hand.length
+		}
+	def showDraw = {
+		deck.length
+		}
 	}
 
 
@@ -130,8 +165,3 @@ object PlayerOrder extends scala.collection.mutable.Queue[Player] {
 class Player (val name : String) {
   var hand= new ListBuffer[String]()
 }
-
-Menu.showGameArea
-Menu.showAllHands
-Menu.showPlayerOrder
-Menu.advancePlayerOrder
